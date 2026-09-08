@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import type { ChangeEvent } from 'react'
 import type { Priority, Todo } from '../src/interfaces/Form'
 //subcomponentes 
 import ListTodo from './components/ListTodo'
 import FormTodo from './components/FormTodo'
+import { consultarTodosAxios, crearTodoAxios, crearTodoFetch } from './services/TodoService'
 
 
 
@@ -14,7 +15,25 @@ const App = () => {
 
 
   const[listaTodo , setListaTodo] = 
-                useState<Todo[]>([])
+                useState<Todo[]>([]) 
+
+  //useEffect: hook: metodo para 
+  //           controlar ciclo 
+  //           de vida del componente
+  //           controlar lo que pase
+  //           cuando se carga el conponente(App)    
+  //por primera vez
+  useEffect(()=>{
+    const consultar = async() => {
+      //llame al servicio
+      //para traer datos
+      const datos= await consultarTodosAxios()
+      //cargar el estado
+      //con los datos traidos
+      setListaTodo(datos)
+    }
+    consultar()
+  },[])
 
 
   //crear funcion para añadir
@@ -22,18 +41,24 @@ const App = () => {
     // pero aislada
     //nECESITA LOS ATRIBUTOS DE LA NUEVA
     //tarea como parametros
-const addToDo = ( titulo: string , 
+const addToDo = async ( titulo: string , 
                   prioridad:Priority) => {
-     //nueva tarea
+    //nueva tarea
     const Tarea: Todo = {
+      //UUID
         id: crypto.randomUUID(),
         titulo: titulo,
         prioridad: prioridad, 
         completada: false
-      }
+    }
+    
+    //guardar el nuevo todo
+    //en la api 
+    const nuevaData = await crearTodoAxios(Tarea)
+
     //poner la nueva tarea 
     // en la lista
-    setListaTodo((prev)=>[...prev , Tarea])
+    setListaTodo((prev)=>[...prev , nuevaData])
   }
   //function para tratar el form
 

@@ -1,0 +1,71 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "titulo": "tarea 1",
+      "prioridad": "Alta",
+      "completada": false
+    },
+    {
+      "id": "2",
+      "titulo": "tarea 2",
+      "prioridad": "Media",
+      "completada": true
+    },
+    {
+      "titulo": "sample",
+      "prioridad": "Alta",
+      "completada": true,
+      "id": "XZQpwMdl3zc"
+    },
+    {
+      "titulo": "Ejemplo Tarea",
+      "prioridad": "Alta",
+      "completada": true,
+      "id": "Hvf2jnlavVs"
+    },
+    {
+      "titulo": "Ejemplo Tarea",
+      "prioridad": "Alta",
+      "completada": true,
+      "id": "-xH2nX8Bphs"
+    },
+    {
+      "titulo": "Ejemplo Tarea",
+      "prioridad": "Alta",
+      "completada": true,
+      "id": "6_nG-lKQq2Y"
+    },
+    {
+      "titulo": "Ejemplo mil",
+      "prioridad": "Alta",
+      "completada": true,
+      "id": "goBeoOWPKJQ"
+    },
+    {
+      "titulo": "E 200",
+      "prioridad": "Alta",
+      "completada": false,
+      "id": "w1H-1zZldd0"
+    },
+    {
+      "id": "yPFob8i22WU",
+      "titulo": "recoger mis aguas",
+      "prioridad": "Media",
+      "completada": false
+    },
+    {
+      "id": "afqPVejYz3Y",
+      "titulo": "tender la cama",
+      "prioridad": "Alta",
+      "completada": false
+    },
+    {
+      "id": "Hi82EBM9lVw",
+      "titulo": "hacer comida",
+      "prioridad": "Alta",
+      "completada": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
