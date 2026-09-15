@@ -67,5 +67,49 @@
       "completada": false
     }
   ],
+  "users": [
+    {
+      "id": "1",
+      "nombre": "Dayana Bejarano",
+      "email": "dayana@gmail.com",
+      "rol": "Admin"
+    },
+    {
+      "id": "2",
+      "nombre": "Alison Agudelo",
+      "email": "alison@gmail.com",
+      "rol": "Dev"
+    },
+    {
+      "nombre": "Mariana Gomez",
+      "email": "mariana@gmail.com",
+      "rol": "Dev",
+      "id": "4yd667rfIyo"
+    },
+    {
+      "nombre": "Mariana Gomez",
+      "email": "mariana@gmail.com",
+      "rol": "Dev",
+      "id": "j3SDV1MJRbw"
+    },
+    {
+      "nombre": "Mariana Gomez",
+      "email": "mariana@gmail.com",
+      "rol": "Dev",
+      "id": "T2wOiA-QohY"
+    },
+    {
+      "nombre": "Mariana Gomez",
+      "email": "mariana@gmail.com",
+      "rol": "Dev",
+      "id": "uXwnPHJ8uA0"
+    },
+    {
+      "nombre": "Mariana Gomez",
+      "email": "mariana@gmail.com",
+      "rol": "Dev",
+      "id": "0tPWfkEEOdg"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

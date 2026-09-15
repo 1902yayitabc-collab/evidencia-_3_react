@@ -1,87 +1,46 @@
-import { useState, useEffect } from 'react'
-import type { ChangeEvent } from 'react'
-import type { Priority, Todo } from '../src/interfaces/Form'
-//subcomponentes 
-import ListTodo from './components/ListTodo'
-import FormTodo from './components/FormTodo'
-import { consultarTodosAxios, crearTodoAxios, crearTodoFetch } from './services/TodoService'
-
-
-
+import {Routes, 
+        Route, 
+        NavLink,
+        Navigate
+      } from 
+  'react-router-dom'
+import TodoPage from './pages/todos/TodoPage'
+import UserPage from './pages/users/UserPage'
 
 const App = () => {
-
-  //estado para el formulario
-
-
-  const[listaTodo , setListaTodo] = 
-                useState<Todo[]>([]) 
-
-  //useEffect: hook: metodo para 
-  //           controlar ciclo 
-  //           de vida del componente
-  //           controlar lo que pase
-  //           cuando se carga el conponente(App)    
-  //por primera vez
-  useEffect(()=>{
-    const consultar = async() => {
-      //llame al servicio
-      //para traer datos
-      const datos= await consultarTodosAxios()
-      //cargar el estado
-      //con los datos traidos
-      setListaTodo(datos)
-    }
-    consultar()
-  },[])
-
-
-  //crear funcion para añadir
-    // nueva tarea a listaTodo 
-    // pero aislada
-    //nECESITA LOS ATRIBUTOS DE LA NUEVA
-    //tarea como parametros
-const addToDo = async ( titulo: string , 
-                  prioridad:Priority) => {
-    //nueva tarea
-    const Tarea: Todo = {
-      //UUID
-        id: crypto.randomUUID(),
-        titulo: titulo,
-        prioridad: prioridad, 
-        completada: false
-    }
-    
-    //guardar el nuevo todo
-    //en la api 
-    const nuevaData = await crearTodoAxios(Tarea)
-
-    //poner la nueva tarea 
-    // en la lista
-    setListaTodo((prev)=>[...prev , nuevaData])
-  }
-  //function para tratar el form
-
-
-
-  
-
-return (
+  return(
+    //Bloque de navegacion global 
     <>
-       {/* aqui se pone el subcomponente
-          del formulario*/ }
-      <FormTodo addToDo={addToDo}/>
-      {/* AQUI SE PONE EL SUBCOMPONENTE
-          ListTodo Tobla*/} 
-          
-      <ListTodo Todolist={listaTodo} />
-
+    <nav style={{ display:"flex" , 
+                  gap: "10px",
+                  paddingBottom: "30px",
+                  paddingTop: "30px",
+                  backgroundColor: "aqua"
+                }}>
+      <NavLink to="/todos">
+        Tareas
+      </NavLink>
+      <NavLink to="/users">
+          Users
+      </NavLink>
+    </nav>
+    <hr />
+    <main>
+      <Routes>
+          <Route 
+              path='/todos'
+              element={<TodoPage />}
+          />
+          <Route 
+              path= '/users'
+              element={<UserPage />}    
+          />
+      </Routes>
+    </main>
     </>
   )
+
 }
+
 
 export default App
-
-function setFormulario(arg0: any) {
-  throw new Error('Function not implemented.')
-}
