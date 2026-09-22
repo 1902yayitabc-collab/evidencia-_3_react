@@ -2,8 +2,8 @@ import {useState ,
         useEffect} from 'react'
 import ListUsers from '../../components/users/ListUsers'
 import FormUser from '../../components/users/FormUser'
-import type { IUser } from '../../interfaces/users/IUser'
-import { getAllUsers } from '../../services/UserService'
+import type { IUser, Rol } from '../../interfaces/users/IUser'
+import { getAllUsers, createUser } from '../../services/UserService'
 
 const UserPages = () => {
 
@@ -24,9 +24,29 @@ const UserPages = () => {
           consultar()
   },[])
 
+  //crear funcion para añadir
+  // nuevo usuario a listaUsers
+  const addUser = async (nombre: string, email: string, rol: Rol) => {
+    //nuevo usuario
+    const usuario: IUser = {
+      id: crypto.randomUUID(),
+      nombre: nombre,
+      email: email,
+      rol: rol
+    }
+
+    //guardar el nuevo usuario
+    //en la api
+    const nuevaData = await createUser(usuario)
+
+    //poner el nuevo usuario
+    // en la lista
+    setlistaUsers((prev)=>[...prev, nuevaData])
+  }
+
   return (
     <>
-        <FormUser />
+        <FormUser addUser={addUser} />
         <ListUsers u={listaUsers} />
     </>
   )

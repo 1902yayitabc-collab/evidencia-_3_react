@@ -59,3 +59,33 @@ body {
 .table tbody tr:hover td {
   background-color: #d9eaf7;
 }
+
+/* NAVBAR */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: linear-gradient(90deg, #2f5597, #5b9bd5);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.navbar a.active {
+  background-color: #ffffff;
+  color: #2f5597;
+}

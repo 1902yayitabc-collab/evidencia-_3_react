@@ -1,4 +1,3 @@
-import React from 'react'
 import type { IUser } from '../../interfaces/users/IUser'
 
 interface ListUsersProps{
@@ -7,29 +6,29 @@ interface ListUsersProps{
 
 const ListUsers = ({u}:ListUsersProps) => {
   return (
-    <>
-        <div>Lista de usuarios</div>
-        <table>
+    <section>
+        <h1>Lista de usuarios</h1>
+        <table className='table'>
             <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Email</th>
+                    <th>Rol</th>
                 </tr>
             </thead>
             <tbody>
                 {
                     u.map((us:IUser)=>(
-                        <tr>
+                        <tr key={us.id}>
                             <td>{ us.nombre }</td>
                             <td>{ us.email }</td>
+                            <td>{ us.rol }</td>
                         </tr>
                     ))
                 }
             </tbody>
         </table>
-    </>
-    
-
+    </section>
   )
 }
 

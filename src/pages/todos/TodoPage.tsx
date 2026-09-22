@@ -1,12 +1,10 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
-import type { ChangeEvent } from 'react'
 
 //subcomponentes 
 import ListTodo from '../../components/todos/ListTodo'
 import type { Priority, Todo } from '../../interfaces/todos/Form'
 import FormTodo from '../../components/todos/FormTodo'
-import { consultarTodosAxios, crearTodoAxios, crearTodoFetch } from '../../services/TodoService'
+import { consultarTodosAxios, crearTodoAxios } from '../../services/TodoService'
 
 const TodoPage = () => {
 

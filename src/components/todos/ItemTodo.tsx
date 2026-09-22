@@ -1,4 +1,3 @@
-import React from 'react'
 import type { Todo } from '../../interfaces/todos/Form'
 import { FiAlertTriangle } from "react-icons/fi";
 

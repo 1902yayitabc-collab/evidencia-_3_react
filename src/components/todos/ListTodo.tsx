@@ -1,4 +1,3 @@
-import React from 'react'
 import type{ Todo } from  '../../interfaces/todos/Form'
 import ItemTodo from './ItemTodo'
 
@@ -35,7 +34,7 @@ function ListTodo({ Todolist }: ListTodoProps) {
           <tbody>
             {
               Todolist.map((todo: Todo)=>(
-                <ItemTodo  t={todo} />
+                <ItemTodo key={todo.id} t={todo} />
                
               ))
             }

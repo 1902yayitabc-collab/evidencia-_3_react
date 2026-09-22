@@ -1,7 +1,6 @@
 import {Routes, 
         Route, 
-        NavLink,
-        Navigate
+        NavLink
       } from 
   'react-router-dom'
 import TodoPage from './pages/todos/TodoPage'
@@ -11,20 +10,14 @@ const App = () => {
   return(
     //Bloque de navegacion global 
     <>
-    <nav style={{ display:"flex" , 
-                  gap: "10px",
-                  paddingBottom: "30px",
-                  paddingTop: "30px",
-                  backgroundColor: "aqua"
-                }}>
+    <nav className='navbar'>
       <NavLink to="/todos">
         Tareas
       </NavLink>
       <NavLink to="/users">
-          Users
+          Usuarios
       </NavLink>
     </nav>
-    <hr />
     <main>
       <Routes>
           <Route 
